@@ -1,0 +1,72 @@
+/* Particle Canvas */
+.hero {
+  background: radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a0f 70%);
+}
+
+/* Glow Effects */
+.pillar-card:hover {
+  animation: glow-blue 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow-blue {
+  from {
+    box-shadow: 0 0 5px rgba(0, 212, 255, 0.2);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+  }
+}
+
+/* CTA Pulse */
+.cta-button {
+  animation: cta-pulse 2s infinite;
+}
+
+@keyframes cta-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(0, 212, 255, 0);
+  }
+}
+
+/* Timer Glow - Removed for reduced visual noise */
+
+/* Offer Card Shine */
+.offer-card {
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(251, 191, 36, 0.4);
+  }
+}
+
+/* Stat Card Pulse - Removed for reduced visual noise */
+
+/* Floating Animation */
+.pillar-icon {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
