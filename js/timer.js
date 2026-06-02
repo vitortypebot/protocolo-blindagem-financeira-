@@ -4,7 +4,7 @@ class CountdownTimer {
     this.hoursEl = document.getElementById(hoursElement);
     this.minutesEl = document.getElementById(minutesElement);
     this.secondsEl = document.getElementById(secondsElement);
-    this.duration = durationHours * 60 * 60 * 1000; // Convert to ms
+    this.duration = durationHours * 60 * 60 * 1000;
     this.endTime = this.getEndTime();
     if (!this.hoursEl || !this.minutesEl || !this.secondsEl) return;
     this.init();
@@ -34,8 +34,10 @@ class CountdownTimer {
     const diff = this.endTime - now;
 
     if (diff <= 0) {
-      this.endTime = Date.now() + this.duration;
-      localStorage.setItem('timerEndTime', this.endTime.toString());
+      this.hoursEl.textContent = '00';
+      this.minutesEl.textContent = '00';
+      this.secondsEl.textContent = '00';
+      clearInterval(this.intervalId);
       return;
     }
 
@@ -51,8 +53,6 @@ class CountdownTimer {
 
 // Initialize on load
 document.addEventListener('DOMContentLoaded', () => {
-  // Hero timer
   new CountdownTimer('hours', 'minutes', 'seconds', 24);
-  // Offer timer (same countdown)
   new CountdownTimer('hours-offer', 'minutes-offer', 'seconds-offer', 24);
 });
